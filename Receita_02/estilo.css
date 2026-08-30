@@ -1,0 +1,67 @@
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f3
+}
+
+tr:hover {background-color: #ddd
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6d;
+    color: white;
+}
+
+
+p.verso {
+    color: blue;
+}
+
+p.mote {                                                
+    color: red;
+}
+
+.poeta img{
+    border-radius: 50%;
+}
+
+
+
+a:link {
+  color: #2563eb;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  
+  padding-left: 50px;  /* Afasta 25px na esquerda */
+  padding-right: 25px; /* Afasta 25px na direita */
+}
+
+a:visited {
+    color: #7c3aed;
+}
+
+a:hover {
+    
+    color: #dc2626;
+    text-decoration: none;
+    background-color: #fef2f2;
+    padding: 4px 58px;
+    border-radius: 4px;
+}
+
+a:active {
+    color: #991b1b;
+    transform: scale(0,98);
+}
