@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>   
+
+    <head>
+
+        <meta charset="UTF-8">  
+        <link href="estilo.css" rel="stylesheet">
+
+    </head>
+
+   
+
+    <body>
+
+        <div id="meu amor">
+
+            <button id="botaoCarregar">Carregando cervejas...</button>
+
+        </div>     
+      
+        <div id="texto" class="fade_In" class="fade_In_out"></div>
+
+    </body>   
+
+    <script>
+
+        let estado = ["invisivel", "visivel"]
+        
+        let botao = document.getElementById("botaoCarregar");
+        let div = document.getElementById("texto");
+        botao.onclick = carregarDiv;
+
+        
+        function carregarDiv(){
+
+            div.innerHTML = `<h1>Guinness</h1>`;
+
+            div.classList.remove(estado[0]);
+
+            div.classList.add(estado[1]);
+
+            botao.onclick = apagarDiv;
+        }
+
+        function apagarDiv(){
+
+            div.classList.remove(estado[1]);
+
+            div.classList.add(estado[0]);
+
+            div.innerHTML = ` `;
+
+            botao.onclick = carregarDiv;
+
+        }
+
+    
+    </script>
+
+</html>
