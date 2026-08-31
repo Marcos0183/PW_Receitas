@@ -1,4 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+/* Botão Estilo Dourado Cervejeiro */
+.btn-cerveja {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: #1a1412; /* Texto escuro tom Stout */
+  
+  /* Gradiente que simula a tonalidade amarelada e reluzente do chopp */
+  background: linear-gradient(180deg, #ffcf40 0%, #ffbf00 50%, #d49b00 100%);
+  
+  border: 1px solid #d4af37;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease-in-out;
+}
+
+/* Efeito Hover (ao passar o mouse) */
+.btn-cerveja:hover {
+  background: linear-gradient(180deg, #ffe066 0%, #ffcf40 100%);
+  color: #000000;
+  box-shadow: 0 0 12px rgba(255, 191, 0, 0.6); /* Brilho dourado */
+  transform: translateY(-2px); /* Efeito de elevação */
+}
+
+/* Efeito Clique (Active) */
+.btn-cerveja:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
 
 /* Estilização Geral da Tabela com Tema Cervejeiro */
 .tabela-cervejaria {
