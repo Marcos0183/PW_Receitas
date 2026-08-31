@@ -19,43 +19,43 @@
 
         </div>     
       
-        <div id="texto" class="fade_In" class="fade_In_out"></div>
+        <div id="texto" class="fade_In"></div>
 
     </body>   
 
     <script>
 
-        let estado = ["invisivel", "visivel"]
-        
+        let estado = ["visivel"];
+        let cervejas = ["Guinnesses", "Skol", "Brahma"];
         let botao = document.getElementById("botaoCarregar");
         let div = document.getElementById("texto");
+        let cont = -1
+
         botao.onclick = carregarDiv;
 
-        
         function carregarDiv(){
 
-            div.innerHTML = `<h1>Guinness</h1>`;
+            if(cont == (cervejas.length - 1)){
+                cont = -1
+            }
 
-            div.classList.remove(estado[0]);
+            div.innerHTML = `<h1>${cervejas[cont + 1]}</h1>`;
 
-            div.classList.add(estado[1]);
+            cont++
+
+            div.classList.add(estado[0]);
 
             botao.onclick = apagarDiv;
         }
 
         function apagarDiv(){
 
-            div.classList.remove(estado[1]);
-
-            div.classList.add(estado[0]);
-
-            div.innerHTML = ` `;
+            div.classList.remove(estado[0]);
 
             botao.onclick = carregarDiv;
 
         }
 
-    
     </script>
 
 </html>
