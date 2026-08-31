@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600&display=swap');
+
+/* Estilização Geral da Tabela com Tema Cervejeiro */
+.tabela-cervejaria {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1412; /* Fundo escuro como uma cerveja Stout/Porter */
+  color: #f3e5ab; /* Texto em tom de colarinho de cerveja (creme) */
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Cabeçalho - Estilo Rústico / Artesanal */
+.tabela-cervejaria th {
+  font-family: 'Cinzel', serif; /* Fonte com estilo clássico/cervejeiro */
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffbf00; /* Amarelo ouro/ambares */
+  background: linear-gradient(180deg, #3a220f 0%, #241407 100%); /* Gradiente de cevada tostada */
+  padding: 14px 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid #d4af37; /* Linha dourada divisor */
+}
+
+/* Células de Dados - Legibilidade + Estilo */
+.tabela-cervejaria td {
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #e6d3a7;
+  border-bottom: 1px solid #33261d;
+  transition: color 0.2s ease;
+}
+
+/* Destaques em Texto (ex: Nomes de Cervejas ou Estilos) */
+.tabela-cervejaria td.nome-cerveja {
+  font-weight: 600;
+  color: #f4c430; /* Tom de chopp pilsen */
+}
+
+/* Destaques para Teor Alcoólico (ABV) ou IBU */
+.tabela-cervejaria td.destaque {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: #e25822; /* Tom âmbar avermelhado / IPA */
+}
+
+/* Efeito ao passar o mouse na linha (Hover) */
+.tabela-cervejaria tbody tr:hover {
+  background-color: #2a1f18;
+}
+
+.tabela-cervejaria tbody tr:hover td {
+  color: #ffffff; /* Texto brilha ao passar o mouse */
+}
