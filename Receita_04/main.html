@@ -13,23 +13,23 @@
 
       <div id="meu amor">
 
-         <button id="botaoCarregar" class="btn-cerveja">
+         <a href="#" id="botaoCarregar" class="link-cerveja">
 
             Carregando Cervejas...
 
-         </button>
+         </a>
 
-         <button id="botaoOrdenar" class="btn-cerveja">
+         <a href="#" id="botaoOrdenar" class="link-cerveja">
 
-            Ordenar Cervejas...
+            Ordenando Cervejas...
 
-         </button>
+         </a>
 
-         <button id="botaoEmbaralhar" class="btn-cerveja">
+        <a href="#" id="botaoEmbaralhar" class="link-cerveja">
 
-            Embaralhar Cervejas...
+            Emabaralhando Cervejas...
 
-         </button>
+         </a>
 
       </div>   
 
@@ -57,14 +57,23 @@
 
    <script>
 
-      let cervejas = ["Guiness", "Desperados", "Becks", "Brahma", "Corona"]
+      let cervejas = [
+                     "The Legend of Zelda: Tears of the Kingdom",
+                     "Minecraft",
+                     "Elden Ring",
+                     "The Witcher 3: Wild Hunt",
+                     "Red Dead Redemption 2",
+                     "Grand Theft Auto V",
+                     "Cyberpunk 2077",
+                     "God of War Ragnarök"
+         ]
+
+      
       let cerv_ordenado = cervejas.toSorted()
-
       const transformar = item => `<tr><td>${item}</td></tr>`
-
       let div = document.getElementById("cervejas")
 
-      function carregarDiv(){
+      const carregarDiv = () => {
 
          let cervejasHtml = cervejas.map(transformar) 
 
@@ -72,7 +81,7 @@
 
       }
 
-      function ordenarDiV(){
+      const ordenarDiV = () => {
           
          let cervejasHtml = cerv_ordenado.map(transformar)
 
@@ -80,11 +89,9 @@
          
       }
 
-      function aux_embaralhar(){
+      const aux_embaralhar = () => {
 
          let embaralhado = embaralhar(cervejas)
-
-         console.log(embaralhado)
 
          let cervejasHtml = embaralhado.map(transformar)
 
@@ -92,7 +99,7 @@
          
       }
 
-      function embaralhar(array) {
+      const embaralhar = (array) => {
 
          let copia = [...array]; 
 

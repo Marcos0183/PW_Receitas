@@ -96,3 +96,32 @@
 .tabela-cervejaria tbody tr:hover td {
   color: #ffffff; /* Texto brilha ao passar o mouse */
 }
+
+.link-cerveja {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f1a80a; /* Amarelo/Dourado Cerveja */
+  color: #2b1700; /* Castanho Escuro */
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid #b87b00;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse (Hover) - Simula o colarinho/espuma */
+.link-cerveja:hover {
+  background-color: #fff8e7; /* Cor de Espuma */
+  color: #d98200;
+  border-color: #f1a80a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito ao clicar */
+.link-cerveja:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
