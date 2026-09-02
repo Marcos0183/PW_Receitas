@@ -25,6 +25,12 @@
 
          </button>
 
+         <button id="botaoEmbaralhar" class="btn-cerveja">
+
+            Embaralhar Cervejas...
+
+         </button>
+
       </div>   
 
       </br>
@@ -51,8 +57,8 @@
 
    <script>
 
-      let cervejas = ["Guiness", "Desperados", "Becks"]
-      let cerv_ordenado = cervejas.sort()
+      let cervejas = ["Guiness", "Desperados", "Becks", "Brahma", "Corona"]
+      let cerv_ordenado = cervejas.toSorted()
 
       const transformar = item => `<tr><td>${item}</td></tr>`
 
@@ -68,13 +74,45 @@
 
       function ordenarDiV(){
           
-         
+         let cervejasHtml = cerv_ordenado.map(transformar)
+
+         div.innerHTML = `${cervejasHtml.join("\n")}`
          
       }
 
-      let botao = document.getElementById("botaoCarregar")
+      function aux_embaralhar(){
 
-      botao.addEventListener("click", carregarDiv)                 
+         let embaralhado = embaralhar(cervejas)
+
+         console.log(embaralhado)
+
+         let cervejasHtml = embaralhado.map(transformar)
+
+         div.innerHTML = `${cervejasHtml.join("\n")}`
+         
+      }
+
+      function embaralhar(array) {
+
+         let copia = [...array]; 
+
+         for (let i = copia.length - 1; i > 0; i--) {
+
+            const j = Math.floor(Math.random() * (i + 1));
+
+            [copia[i], copia[j]] = [copia[j], copia[i]]; 
+         }
+
+         return copia;
+      }
+
+      let botao = document.getElementById("botaoCarregar")
+      let botao_ord = document.getElementById("botaoOrdenar")
+      let botao_emb = document.getElementById("botaoEmbaralhar")
+
+      botao_ord.addEventListener("click", ordenarDiV)
+      botao.addEventListener("click", carregarDiv)       
+      botao_emb.addEventListener('click', aux_embaralhar)          
 
    </script>
 
