@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">  
+      <link href="estilo.css" rel="stylesheet">     
+
+   </head>
+
+
+
+   <body>
+
+      <div><button id="botaoCarregar" class="btn-cerveja">Carregando cervejas...</button></div>
+
+      <table class="tabela-cervejaria">
+
+         <thead>
+
+          <tr id="columnDiv"></tr>
+
+         </thead>
+
+         <tbody id="cervejasDiv">
+
+
+         </tbody>
+
+      </table>        
+
+   </body>   
+
+   
+
+   <script>
+
+
+      const cervejas = [
+         ["NAME", 
+         "ALCOHOL",
+         "STYLE",
+         "IBU",
+         "ORIGEM"
+         ],
+         {
+            name: "Guinness Draught",
+            alcohol: "4.2%",
+            style: "Irish Dry Stout",
+            ibu: "45",
+            origem: "Irlanda"
+         },
+         {
+            name: "Desperados Original",
+            alcohol: "5.9%",
+            style: "Tequila Flavoured Beer",
+            ibu: "28",
+            origem: "França"
+         },
+         {
+            name: "Beck's",
+            alcohol: "5.0%",
+            style: "German Pilsener",
+            ibu: "20",
+            origem: "Alemanha"
+         },
+         {
+            name: "Chimay Blue (Grande Réserve)",
+            alcohol: "9.0%",
+            style: "Belgian Dark Strong Ale",
+            ibu: "30",
+            origem: "Bélgica"
+         },
+         {
+            name: "Pilsner Urquell",
+            alcohol: "4.4%",
+            style: "Czech Pilsener",
+            ibu: "40",
+            origem: "República Tcheca"
+         },
+         {
+            name: "Sierra Nevada Pale Ale",
+            alcohol: "5.6%",
+            style: "American Pale Ale",
+            ibu: "38",
+            origem: "Estados Unidos"
+         },
+         {
+            name: "Paulaner Hefe-Weißbier",
+            alcohol: "5.5%",
+            style: "German Hefeweizen",
+            ibu: "16",
+            origem: "Alemanha"
+         },
+         {
+            name: "Duvel",
+            alcohol: "8.5%",
+            style: "Belgian Golden Strong Ale",
+            ibu: "33",
+            origem: "Bélgica"
+         },
+         {
+            name: "BrewDog Punk IPA",
+            alcohol: "5.2%",
+            style: "American IPA",
+            ibu: "35",
+            origem: "Escócia"
+         },
+         {
+            name: "Franziskaner Hefe-Weissbier",
+            alcohol: "5.0%",
+            style: "German Hefeweizen",
+            ibu: "12",
+            origem: "Alemanha"
+         }
+         ];
+
+   
+      
+      function tabCel(item){
+
+         return `<tr>
+            
+            <td>${item['name']}</td>
+
+            </tr>`
+
+      }
+
+      function loadCel(cs, idCel, atributo = ["name", "alcohol", "style", "ibu"]) {
+
+         const divCel = document.getElementById(idCel)
+
+         const itensHtml = cs.map(item => `<tr>${atributo.map(atr => `<td>${item[atr]}</td>`).join('')}</tr>`).join("\n")
+
+         divCel.innerHTML = `${itensHtml}`
+
+      }
+
+      function loadCol(col = ["NOME", "ÁLCOOL,", "ESTILO", "AMARGOR", "ORIGEM"], idCol){
+
+         const divCol = document.getElementById(idCol)
+
+         const itensHTML = col.map(item => `<th>${item}</th>`).join("\n")
+
+         divCol.innerHTML = `${itensHTML}`
+
+      }
+      
+      
+      const vetorIds = ["cervejasDiv", "columnDiv"]
+
+      let botao = document.getElementById("botaoCarregar")
+
+      botao.addEventListener("click", () => {
+         loadCol(cervejas[0], vetorIds[1]);                       
+         loadCel(cervejas.slice(1), vetorIds[0], Object.keys(cervejas[1]))
+      })            
+
+
+   </script>
+
+</html>
