@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">  
+      <link href="estilo.css" rel="stylesheet">
+
+   </head>
+
+
+
+   <body>
+
+      <div><button id="botaoCarregar" class="link-cerveja">Carregando cervejas...</button></div>
+
+      <table class="tabela-cervejaria">
+
+         <thead id="loadColumn">
+
+         </thead>
+
+         <tbody id="loadBody">
+
+         </tbody>
+
+
+      </table>            
+
+   </body>   
+
+   
+   
+   <script type="module">
+
+      import { loadTable } from './loadTable.js'
+
+      async function carregarCervejas(){
+
+        try{
+
+            let res = await fetch("https://api.openbrewerydb.org/v1/breweries")
+
+            let cervejas = await res.json()
+
+            loadTable(cervejas)
+
+        }
+        catch(err) {
+
+            document.getElementById("cervejasDiv").innerHTML = `<h1>Fudeu<h1>`
+
+        }
+
+      }
+
+
+      let botao = document.getElementById("botaoCarregar")
+
+      botao.addEventListener("click", () => carregarCervejas() )                 
+
+
+   </script>
+
+</html>

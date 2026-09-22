@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">      
+
+   </head>
+
+
+
+   <body>
+
+      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+
+      <div id="cervejasDiv"></div>            
+
+   </body>   
+
+   
+
+   <script>
+
+
+
+      let cervejas = []
+
+      
+
+      //cs é um array de cervejas
+
+      const carregarDiv = cs => {
+
+         const div = document.getElementById("cervejasDiv")
+
+         const itensHtml = cs.map( itm => 
+         
+         `<div>${item["name"]} -- ${item["city"]}</div>` ) 
+
+
+         div.innerHTML = `${itensHtml.join("\n")}`
+
+      }
+
+      
+
+      async function carregarCervejas(){
+
+         try{
+
+            let res = await fetch("https://api.openbrewerydb.org/v1/breweries")
+
+            cervejas = await res.json()
+
+            carregarDiv(cervejas)
+
+         }catch(err){
+
+            document.getElementById("cervejasDiv").innerHTML = "Fudeu..."
+
+         }
+
+      }
+
+      function chegouRespostadoJson(json){
+
+        carregarDiv(json)
+
+      }
+
+
+      function chegouRespostaDoFetch(res){
+
+        res.then(chegouRespostadoJson)
+
+      }
+
+      
+      function carregarCervejas2(){
+
+         fetch("https://api.openbrewerydb.org/v1/breweries").then(chegouRespostaDoFetch)
+
+         document.getElementById("cervejasDiv").innerHTML = `Fazendo requisição`          
+
+      }
+
+      
+
+
+
+      let botao = document.getElementById("botaoCarregar")
+
+      botao.addEventListener("click", () => carregarCervejas2() )                 
+
+      
+
+   </script>
+
+</html>
