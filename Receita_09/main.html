@@ -1,33 +1,67 @@
 <!DOCTYPE html>
-
 <html>
-
    <head>
-
-      <title>ReactZero</title>      
-
+      <title>ReactZero</title>
+      <link href="estilo.css" rel="stylesheet">  
    </head>
-
    <body>
-
       <div id="app">
-
-      
 
       </div>
 
       <script src="libs/react.js"></script>
-
       <script src="libs/react-dom.js"></script>
-
-      
 
       <script>
 
+         ReactDOM.render(
+            React.createElement(
+               'table',
+               {className: 'tabela-cervejaria'},
+               null,
+               React.createElement(
+                  'thead',
+                  null,
+                  React.createElement(
+                     'tr',
+                     null,
+                     React.createElement(
+                        'th',
+                        null,
+                        'CERVEJA'
+                     ),
+                     React.createElement(
+                        'th',
+                        null,
+                        'Teor %'
+                     )
+                  )
+               ),
+               React.createElement(
+                  'tbody',
+                  null,
+                  React.createElement(
+                     'tr',
+                     null,
+                     React.createElement(
+                        'td',
+                        {className: 'centralizado'},
+                        'H2O'
+                     ),
+                     React.createElement(
+                        'td',
+                        {className: 'centralizado'},
+                        '1%'
+                     )
+                  )
+               )
+
+            ),
+            document.getElementById("app")
+         )
+            
+
          
-
       </script>
-
    </body>
-
 </html>
