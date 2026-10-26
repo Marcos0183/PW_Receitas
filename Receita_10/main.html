@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <link href="estilo.css" rel="stylesheet">  
+    <link rel="stylesheet" href="../style/estilo.css"> 
     <title>ReactZero</title>
 </head>
 <body>
@@ -12,9 +12,9 @@
 
     </div>
 
-    <script src="libs/react.js"></script>
-    <script src="libs/react-dom.js"></script>
-    <script src="libs/babel.js"></script>
+    <script src="../libs/react.js"></script>
+    <script src="../libs/react-dom.js"></script>
+    <script src="../libs/babel.js"></script>
 
     <script type="text/babel">
 
@@ -96,10 +96,9 @@
       }
 
       function TabelaCerveja(){
-
          atributos = Object.keys(cervejas[0])
          console.log(atributos)
-         const a = cervejas.map(item => <tr>{atributos.map(atr => <td key={item[atr]}>{item[atr]}</td>)}</tr>)
+         const bodyTable = cervejas.map(item => <tr>{atributos.map(atr => <td key={item[atr]}>{item[atr]}</td>)}</tr>)
          
          return  (<div>
                <table id="tabela" className="tabela-cervejaria">
@@ -112,7 +111,7 @@
                      </tr>
                   </thead>
                   <tbody>
-                     {a}
+                     {bodyTable}
                   </tbody>
                </table>
          </div>)
