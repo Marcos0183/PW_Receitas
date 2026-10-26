@@ -1,26 +1,147 @@
+
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>ReactZero</title>
-      <link href="estilo.css" rel="stylesheet">  
-   </head>
-   <body>
-      <div id="app">
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link href="estilo.css" rel="stylesheet">  
+    <title>ReactZero</title>
+</head>
+<body>
 
-      </div>
+    <div id="app">
 
-      <script src="libs/react.js"></script>
-      <script src="libs/react-dom.js"></script>
-      <script src="libs/babel.js"></script>
+    </div>
 
-      <script type="text/babel">
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
 
-         console.log("Babel executou o script!");
+    <script type="text/babel">
 
-            ReactDOM.render(
-               <h1>Olá, mundo!</h1>,
-               document.getElementById("app")
-            );
-</script>
-   </body>
+      const cervejas = [
+         {
+            name: "Guinness Draught",
+            alcohol: "4.2%",
+            style: "Irish Dry Stout",
+            ibu: "45",
+            origem: "Irlanda"
+         },
+         {
+            name: "Desperados Original",
+            alcohol: "5.9%",
+            style: "Tequila Flavoured Beer",
+            ibu: "28",
+            origem: "França"
+         },
+         {
+            name: "Beck's",
+            alcohol: "5.0%",
+            style: "German Pilsener",
+            ibu: "20",
+            origem: "Alemanha"
+         },
+         {
+            name: "Chimay Blue (Grande Réserve)",
+            alcohol: "9.0%",
+            style: "Belgian Dark Strong Ale",
+            ibu: "30",
+            origem: "Bélgica"
+         },
+         {
+            name: "Pilsner Urquell",
+            alcohol: "4.4%",
+            style: "Czech Pilsener",
+            ibu: "40",
+            origem: "República Tcheca"
+         },
+         {
+            name: "Sierra Nevada Pale Ale",
+            alcohol: "5.6%",
+            style: "American Pale Ale",
+            ibu: "38",
+            origem: "Estados Unidos"
+         },
+         {
+            name: "Paulaner Hefe-Weißbier",
+            alcohol: "5.5%",
+            style: "German Hefeweizen",
+            ibu: "16",
+            origem: "Alemanha"
+         },
+         {
+            name: "Duvel",
+            alcohol: "8.5%",
+            style: "Belgian Golden Strong Ale",
+            ibu: "33",
+            origem: "Bélgica"
+         },
+         {
+            name: "BrewDog Punk IPA",
+            alcohol: "5.2%",
+            style: "American IPA",
+            ibu: "35",
+            origem: "Escócia"
+         },
+         {
+            name: "Franziskaner Hefe-Weissbier",
+            alcohol: "5.0%",
+            style: "German Hefeweizen",
+            ibu: "12",
+            origem: "Alemanha"
+         }
+         ];
+
+      function Cabecalho(){
+         return <h1>Minha tabela de cervejas</h1>
+      }
+
+      function TabelaCerveja(){
+
+         atributos = Object.keys(cervejas[0])
+         console.log(atributos)
+         const a = cervejas.map(item => <tr>{atributos.map(atr => <td key={item[atr]}>{item[atr]}</td>)}</tr>)
+         
+         return  (<div>
+               <table id="tabela" className="tabela-cervejaria">
+                  <thead>
+                     <tr>
+                        <th>NOME</th>
+                        <th>ALCOOL</th>
+                        <th>ESTILO</th><th>AMARGOR</th>
+                        <th>ORIGEM</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {a}
+                  </tbody>
+               </table>
+         </div>)
+      }
+      
+      function Butt(){
+         let [mostrarCabecalho, setMostrarCabecalho] = React.useState(false)
+         return (<div>
+               <button 
+                  id="botaoCarregar" 
+                  onClick={() => setMostrarCabecalho(true)} 
+                  className="btn-cerveja"
+               >
+            Carregando cervejas...
+            </button>
+            {mostrarCabecalho && <Cabecalho />}
+            {mostrarCabecalho && <TabelaCerveja />}
+            </div>)
+      }
+      
+      ReactDOM.render(
+         <div>
+           <Butt />
+         </div>
+         ,
+         document.getElementById("app"),
+      )
+
+    </script>
+
+</body>
 </html>
